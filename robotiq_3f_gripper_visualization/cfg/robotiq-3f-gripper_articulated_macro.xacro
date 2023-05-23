@@ -38,6 +38,8 @@ there are multiple hands then a prefix followed by an "_" is needed.
     		</gazebo>
 
 		<link name="${prefix}gripper_tool0"/>
+
+		<link name="${prefix}pen_tool0"/>
         
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -58,7 +60,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
 			<parent link="${prefix}palm"/>
 			<child link="${prefix}finger_2_link_0"/>
 			<axis xyz="0 1 0"/>
-			<origin xyz="-0.0455 0.0214 -0.036" rpy="0 3.1416 -1.57"/>
+			<origin xyz="-0.0455 0.0214 -0.036" rpy="0 ${pi} -1.57"/>
 			<limit lower="-0.192" upper="0.1784" effort="100" velocity="100"/>
 		</joint>
 		<joint name="${prefix}palm_finger_middle_joint" type="fixed">
@@ -70,7 +72,13 @@ there are multiple hands then a prefix followed by an "_" is needed.
 		<joint name="${prefix}palm_tool0" type="fixed">
 			<parent link="${prefix}palm"/>
 			<child link="${prefix}gripper_tool0"/>
-			<origin xyz="0.0 0.0875 0.0" rpy="0 0 1.5707"/>
+			<!--origin xyz="0.0 0.0875 0.0" rpy="0 0 1.5707"/-->
+			<origin xyz="0.0 0.18 0.0" rpy="0 0 1.5707"/>
+		</joint>
+		<joint name="${prefix}pen" type="fixed">
+			<parent link="${prefix}gripper_tool0"/>
+			<child link="${prefix}pen_tool0"/>
+			<origin xyz="-0.065 0.0 -0.17" rpy="0 0 ${(-PI/2)}"/>
 		</joint>
 		<!-- end of joint list -->
 

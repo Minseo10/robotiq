@@ -12,7 +12,6 @@ find_package(catkin REQUIRED COMPONENTS
   socketcan_interface
   std_srvs
   robotiq_3f_gripper_articulated_msgs
-  message_generation
 )
 
 find_package(PkgConfig)
@@ -85,7 +84,7 @@ target_link_libraries(robotiq_3f_gripper_can_node
   ${catkin_LIBRARIES}
 )
 
-install(PROGRAMS nodes/Robotiq3FGripperSimpleController.py nodes/Robotiq3FGripperStatusListener.py
+install(PROGRAMS nodes/Robotiq3FGripperSimpleController.py nodes/SimpleController.py nodes/Robotiq3FGripperStatusListener.py
         nodes/Robotiq3FGripperTcpNode.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 install(TARGETS ${PROJECT_NAME} robotiq_3f_gripper_can_node robotiq_3f_gripper_ethercat_node

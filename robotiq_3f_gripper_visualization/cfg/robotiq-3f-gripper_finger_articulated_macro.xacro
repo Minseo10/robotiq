@@ -98,7 +98,7 @@ finger(i.e. finger_1, etc...).
 	      		<mu2>1.1</mu2>
 	    	</gazebo>
 
-		<link name="${prefix}link_3">
+		<link name="${prefix}link_3">link name="${prefix}link_3">
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0.52"/>
 				<geometry>
@@ -106,6 +106,7 @@ finger(i.e. finger_1, etc...).
 				</geometry>
 				<material name="gray"/>
 			</visual>
+			<!--
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0.52"/>
 				<geometry>
@@ -113,6 +114,7 @@ finger(i.e. finger_1, etc...).
 				</geometry>
 				<material name="yellow"/>
 			</collision>
+			-->
             <inertial>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <mass value="0.05"/>

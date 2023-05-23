@@ -88,6 +88,7 @@ robotiq-3f-gripper_articulated - articulated version of the robotiq robotiq-3f-g
       </geometry>
       <material name="green"/>
     </visual>
+    <!--
     <collision>
       <origin rpy="0 0 0.52" xyz="0 0 0"/>
       <geometry>
@@ -95,6 +96,7 @@ robotiq-3f-gripper_articulated - articulated version of the robotiq robotiq-3f-g
       </geometry>
       <material name="yellow"/>
     </collision>
+    -->
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.05"/>
@@ -202,6 +204,7 @@ robotiq-3f-gripper_articulated - articulated version of the robotiq robotiq-3f-g
       </geometry>
       <material name="green"/>
     </visual>
+    <!--
     <collision>
       <origin rpy="0 0 0.52" xyz="0 0 0"/>
       <geometry>
@@ -209,6 +212,7 @@ robotiq-3f-gripper_articulated - articulated version of the robotiq robotiq-3f-g
       </geometry>
       <material name="yellow"/>
     </collision>
+    -->
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.05"/>
@@ -316,6 +320,7 @@ robotiq-3f-gripper_articulated - articulated version of the robotiq robotiq-3f-g
       </geometry>
       <material name="green"/>
     </visual>
+    <!--
     <collision>
       <origin rpy="0 0 0.52" xyz="0 0 0"/>
       <geometry>
@@ -323,6 +328,7 @@ robotiq-3f-gripper_articulated - articulated version of the robotiq robotiq-3f-g
       </geometry>
       <material name="yellow"/>
     </collision>
+    -->
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.05"/>
