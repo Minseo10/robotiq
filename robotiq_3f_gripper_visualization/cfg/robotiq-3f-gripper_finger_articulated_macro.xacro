@@ -8,6 +8,7 @@ finger(i.e. finger_1, etc...).
 -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
         <xacro:macro name="robotiq-3f-gripper_finger_articulated" params="prefix">
+		<xacro:include filename="$(find robotiq_3f_gripper_visualization)/cfg/robotiq.transmission.xacro" />
 		<!-- link list -->
 		<link name="${prefix}link_0">
 			<visual>
@@ -34,6 +35,10 @@ finger(i.e. finger_1, etc...).
                 <inertia ixx="0.01" ixy="-0.00002" ixz="0.00001" iyy="0.0008" iyz="0" izz="0.001" />
             </inertial>         
 		</link>
+		<gazebo reference="${prefix}link_0">
+	      		<mu1>1.1</mu1>
+	      		<mu2>1.1</mu2>
+	    	</gazebo>	
 		<link name="${prefix}link_1">
 			<visual>
 				<origin xyz="0.050 -.028 0" rpy="0 0 -0.52"/>
@@ -55,6 +60,12 @@ finger(i.e. finger_1, etc...).
                 <inertia ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024" />
             </inertial>
 		</link>
+		
+		<gazebo reference="${prefix}link_1">
+	      		<mu1>1.1</mu1>
+	      		<mu2>1.1</mu2>
+	    	</gazebo>
+
 		<link name="${prefix}link_2">
 			<!--
 			NOTE: This link has an offset in the z-direction based on the models that were
@@ -81,7 +92,13 @@ finger(i.e. finger_1, etc...).
                 <inertia ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024" />
             </inertial>
 		</link>
-		<link name="${prefix}link_3">
+
+		<gazebo reference="${prefix}link_2">
+	      		<mu1>1.1</mu1>
+	      		<mu2>1.1</mu2>
+	    	</gazebo>
+
+		<link name="${prefix}link_3">link name="${prefix}link_3">
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0.52"/>
 				<geometry>
@@ -89,6 +106,7 @@ finger(i.e. finger_1, etc...).
 				</geometry>
 				<material name="gray"/>
 			</visual>
+			<!--
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0.52"/>
 				<geometry>
@@ -96,6 +114,7 @@ finger(i.e. finger_1, etc...).
 				</geometry>
 				<material name="yellow"/>
 			</collision>
+			-->
             <inertial>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <mass value="0.05"/>
@@ -103,8 +122,14 @@ finger(i.e. finger_1, etc...).
             </inertial>
 		</link>
 
+		<gazebo reference="${prefix}link_3">
+	      		<mu1>1.1</mu1>
+	      		<mu2>1.1</mu2>
+	    	</gazebo>
+
 		<!-- end of link list -->
 		<!-- joint list -->
+		<xacro:robotiq_transmission prefix="${prefix}" />
 		<joint name="${prefix}joint_1" type="revolute">
 			<parent link="${prefix}link_0"/>
 			<child link="${prefix}link_1"/>
@@ -129,3 +154,4 @@ finger(i.e. finger_1, etc...).
 		<!-- end of joint list -->
 	</xacro:macro>
 </robot>
+

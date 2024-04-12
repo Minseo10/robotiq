@@ -31,7 +31,15 @@ there are multiple hands then a prefix followed by an "_" is needed.
 				</material>
 			</collision>
 		</link>
-		<link name="${prefix}tool0"/>
+
+		<gazebo reference="${prefix}palm">
+      		<mu1>1.1</mu1>
+      		<mu2>1.1</mu2>
+    		</gazebo>
+
+		<link name="${prefix}gripper_tool0"/>
+
+		<link name="${prefix}pen_tool0"/>
         
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -52,7 +60,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
 			<parent link="${prefix}palm"/>
 			<child link="${prefix}finger_2_link_0"/>
 			<axis xyz="0 1 0"/>
-			<origin xyz="-0.0455 0.0214 -0.036" rpy="0 3.1416 -1.57"/>
+			<origin xyz="-0.0455 0.0214 -0.036" rpy="0 ${pi} -1.57"/>
 			<limit lower="-0.192" upper="0.1784" effort="100" velocity="100"/>
 		</joint>
 		<joint name="${prefix}palm_finger_middle_joint" type="fixed">
@@ -63,9 +71,35 @@ there are multiple hands then a prefix followed by an "_" is needed.
 		</joint>
 		<joint name="${prefix}palm_tool0" type="fixed">
 			<parent link="${prefix}palm"/>
-			<child link="${prefix}tool0"/>
-			<origin xyz="0.0 0.0875 0.0" rpy="0 0 1.5707"/>
+			<child link="${prefix}gripper_tool0"/>
+			<!--origin xyz="0.0 0.0875 0.0" rpy="0 0 1.5707"/-->
+			<origin xyz="0.0 0.18 0.0" rpy="0 0 1.5707"/>
+		</joint>
+		<joint name="${prefix}pen" type="fixed">
+			<parent link="${prefix}gripper_tool0"/>
+			<child link="${prefix}pen_tool0"/>
+			<origin xyz="-0.065 0.0 -0.17" rpy="0 0 ${(-PI/2)}"/>
 		</joint>
 		<!-- end of joint list -->
+
+		<transmission name="${prefix}palm_finger_1_trans">
+      			<type>transmission_interface/SimpleTransmission</type>
+		        <joint name="${prefix}palm_finger_1_joint">
+			 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		        </joint>
+		        <actuator name="${prefix}palm_finger_1_motor">
+			 <mechanicalReduction>1</mechanicalReduction>
+		        </actuator>
+	 	</transmission>
+
+	        <transmission name="${prefix}palm_finger_2_trans">
+	          <type>transmission_interface/SimpleTransmission</type>
+	          <joint name="${prefix}palm_finger_2_joint">
+	    	<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	          </joint>
+	          <actuator name="${prefix}palm_finger_2_motor">
+	      	    <mechanicalReduction>1</mechanicalReduction>
+	          </actuator>
+	       </transmission>
 	</xacro:macro>
 </robot>
