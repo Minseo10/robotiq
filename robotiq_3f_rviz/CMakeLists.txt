@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 2.8.3)
 project(robotiq_3f_rviz)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+#add_compile_options(-std=c++11)
+add_compile_options(-std=c++17)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -216,3 +217,4 @@ install(DIRECTORY icons/
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+

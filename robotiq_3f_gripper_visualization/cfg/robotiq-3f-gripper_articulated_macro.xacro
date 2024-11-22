@@ -40,7 +40,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
 		<link name="${prefix}gripper_tool0"/>
 
 		<link name="${prefix}pen_tool0"/>
-        
+
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="1.3"/>
